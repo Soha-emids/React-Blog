@@ -11,7 +11,7 @@ const PostDetail=()=>{
 
     useEffect (()=>{
         fetchPostData();
-    },[id])
+    },[fetchPostData])
 
 
     const fetchPostData=useCallback(async ()=>{
@@ -27,7 +27,7 @@ const PostDetail=()=>{
         }finally{
             setLoading(false);
         }
-    });
+    },[id]);
 
 
     if(loading){
