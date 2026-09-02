@@ -9,9 +9,7 @@ const PostDetail=()=>{
     const [loading,setLoading]=useState(false);
     const [error,setError]=useState(null);
 
-    useEffect (()=>{
-        fetchPostData();
-    },[fetchPostData])
+
 
 
     const fetchPostData=useCallback(async ()=>{
@@ -29,6 +27,9 @@ const PostDetail=()=>{
         }
     },[id]);
 
+        useEffect (()=>{
+        fetchPostData();
+    },[fetchPostData])
 
     if(loading){
         return(
