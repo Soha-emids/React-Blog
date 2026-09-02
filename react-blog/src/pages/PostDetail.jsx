@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useCallback, useState,useEffect } from "react";
 import apiService from "../services/apiService";
 import {useParams} from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const PostDetail=()=>{
     },[id])
 
 
-    const fetchPostData=async ()=>{
+    const fetchPostData=useCallback(async ()=>{
         try{
             setLoading(true)
             const [postData, commentsData] = await 
@@ -27,7 +27,7 @@ const PostDetail=()=>{
         }finally{
             setLoading(false);
         }
-    }
+    });
 
 
     if(loading){
